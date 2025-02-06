@@ -1,0 +1,9 @@
+.form {
+  margin: 0 auto;
+  max-width: 30rem;
+  border: var(--border);
+  font-size: 1.2rem;
+
+  background: var(--background-color);
+}
+
