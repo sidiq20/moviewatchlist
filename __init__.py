@@ -17,7 +17,7 @@ def create_app():
 
     client = MongoClient(app.config["MONGODB_URI"])
 
-    app.db = client["moviewatchlist"]
+    app.db = client.get_database("moviewatchlist")
 
     app.register_blueprint(pages)
     return app
