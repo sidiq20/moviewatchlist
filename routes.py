@@ -20,12 +20,12 @@ def add_movie():
     form = MovieForm()
 
     if form.validate_on_submit():
-        movie = {
-            "_id": uuid.uuid4().hex,
-            "title": form.title.data,
-            "director": form.director.data,
-            "year": form.year.data
-        }
+        movie = Movie(
+            _id=uuid.uuid4().hex,
+            title=form.title.data,
+            director=form.director.data,
+            year=form.year.data
+        )
 
         current_app.db.movie.insert_one(movie)
 
