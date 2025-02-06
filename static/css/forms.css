@@ -7,3 +7,45 @@
   background: var(--background-color);
 }
 
+
+.button--form:hover {
+  background: var(--background-color-hover);
+}
+
+.form__small {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.form__link {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+.form__link:hover {
+  color: #d05656;
+}
+
+.form__error {
+  margin-top: 0.5rem;
+}
+
+.form__error,
+.form__flash {
+  display: block;
+  padding: 0.5rem;
+  color: var(--text);
+}
+
+.form__error,
+form__flash--danger {
+  background: var(--accent-colour);
+}
+
+.form__flash {
+  margin: 0.5rem;
+}
+
+.form__flash--success {
+  background: var(--accent-color-2);
+}
