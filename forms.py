@@ -9,9 +9,9 @@ class MovieForm(FlaskForm):
     year = IntegerField(
         "Year",
         validators=[
-        InputRequired(),
-        NumberRange(min=1978, max=2025, message="Please enter a year in the format YYYY.")
-        ]
+            InputRequired(),
+            NumberRange(min=1878, message="Please enter a year in the format YYYY."),
+        ],
     )
 
     submit = SubmitField("Add Movie")
