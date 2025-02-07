@@ -42,6 +42,15 @@ def add_movie():
         form=form
     )
 
+@pages.get("/movie/<string:_id>")
+def movie(_id: str):
+    movie_data = current_app.db.movie.fine_one({"_id": _id})
+    if not movie_data:
+        abort(404)
+    movie = Movie(**movie_data)
+    return render_template(
+        "movie_details.html",
+                           movie=movie)
 
 
 @pages.get("/toggle-theme")
