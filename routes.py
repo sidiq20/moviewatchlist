@@ -1,5 +1,8 @@
 from flask import Blueprint, render_template, session, redirect, request
 from forms import MovieForm
+from models import Movie
+import uuid
+
 
 
 pages = Blueprint(
