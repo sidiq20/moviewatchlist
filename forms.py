@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import IntergerField, StringField, SubmitField
+from wtforms import IntegerField, StringField, SubmitField
+
 from wtforms.validators import InputRequired, NumberRange
 
 class MovieForm(FlaskForm):
