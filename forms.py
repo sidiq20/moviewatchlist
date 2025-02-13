@@ -29,3 +29,13 @@ class StringListField(TextAreaField):
             self.data = [line.strip() for line in valuelist[0].split("\n")]
         else:
             self.data = []
+
+
+class ExtendedMovieForm(MovieForm):
+    cast = StringListField("Cast")
+    series = StringListField("Series")
+    tags = StringListField("Tags")
+    description = TextAreaField("Description")
+    video_link = URLField("Video Link")
+
+    submit = SubmitField("Submit")
