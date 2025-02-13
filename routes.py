@@ -58,13 +58,25 @@ def edit_movie(_id: str):
 
 @pages.get("/movie/<string:_id>")
 def movie(_id: str):
-    movie_data = current_app.db.movie.fine_one({"_id": _id})
-    if not movie_data:
-        abort(404)
-    movie = Movie(**movie_data)
-    return render_template(
-        "movie_details.html",
-                           movie=movie)
+    movie = Movie(**current_app.db.movie.find_one({"_id": _id}))
+    return render_template("movie_details.html", movie=movie)
+
+
+@pages.get("/movie/<string:_id>/watch")
+def watch_today(_id):
+    current_app.db.movie.update_one(
+        {"_id": _id}, {"$set": {"last_watched": datetime.datetime.today()}}
+    )
+
+    return redirect(url_for(".movie", _id=_id))
+
+
+@pages.get("/movie/<string:_id>/rate")
+def rate_movie(_id):
+    rating = int(request.args.get("rating"))
+    current_app.db.movie.update_one({"_id": _id}, {"$set": {"rating": rating}})
+
+    return redirect(url_for(".movie", _id=_id))
 
 
 @pages.get("/toggle-theme")
