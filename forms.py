@@ -19,7 +19,10 @@ class MovieForm(FlaskForm):
 
 class StringListField(TextAreaField):
     def _value(self):
-        return super()._value()
+        if self.data:
+            return "\n".join(self.data)
+        else:
+            return ""
 
     def process_formdata(self, valuelist):
         if valuelist and valuelist[0]:
