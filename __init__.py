@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from dotenv import load_dotenv
 from pymongo import MongoClient
+import logging
 
 from routes import pages
 
