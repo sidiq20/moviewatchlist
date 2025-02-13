@@ -42,6 +42,20 @@ def add_movie():
         form=form
     )
 
+
+@pages.route("/edit/<string:_id>", methods=["GET", "POST"])
+def edit_movie(_id: str):
+    movie = Movie(**current_app.db.movie.find_one({"_id": _id}))
+    form = ExtendedMovieForm(obj=movie)
+    if form.validate_on_submit():
+        movie.cast = form.cast.data
+        movie.series = form.series.data
+        movie.tags = form.tags.data
+        movie.description = form.description.data
+        movie.video_link = form.video_link.data
+
+
+
 @pages.get("/movie/<string:_id>")
 def movie(_id: str):
     movie_data = current_app.db.movie.fine_one({"_id": _id})
