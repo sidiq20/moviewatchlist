@@ -17,6 +17,7 @@ def index():
     return render_template(
         "index.html",
         title="Movies Watchlist",
+        movies_data=movies,
     )
 
 
