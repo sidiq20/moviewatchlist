@@ -20,6 +20,19 @@ def index():
         movies_data=movies,
     )
 
+@pages.route("/register", methods=["GET", "POST"])
+def register():
+    if session.get("email"):
+        return redirect(url_for(".index"))
+
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        pass
+
+    return render_template("register.html", title="Movies Watchlist - Register", form=form)
+
+
 
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
