@@ -36,7 +36,7 @@ class ExtendedMovieForm(MovieForm):
     series = StringListField("Series")
     tags = StringListField("Tags")
     description = TextAreaField("Description")
-    video_link = URLField("Video Link")
+    video_link = URLField("Video link")
 
     submit = SubmitField("Submit")
 
