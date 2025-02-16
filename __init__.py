@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 import logging
 
-from routes import pages
+from .routes import pages
 
 load_dotenv()
 
@@ -15,7 +15,6 @@ def create_app():
     app.config["SECRET_KEY"] = os.environ.get(
         "SECRET_KEY", "20bc721c9186545533e0db2372305f40"
     )
-
     client = MongoClient(app.config["MONGODB_URI"])
     app.db = client["moviewatchlist"]
 
