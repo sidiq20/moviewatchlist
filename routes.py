@@ -70,6 +70,12 @@ def add_movie():
     )
 
 
+@pages.get("/movie/<string:_id>")
+def movie(_id: str):
+    movie = Movie(**current_app.db.movie.find_one({"_id": _id}))
+    return render_template("movie_details.html", movie=movie)
+
+
 @pages.route("/edit/<string:_id>", methods=["GET", "POST"])
 def edit_movie(_id: str):
     movie = Movie(**current_app.db.movie.find_one({"_id": _id}))
