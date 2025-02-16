@@ -33,6 +33,13 @@ def register():
     return render_template("register.html", title="Movies Watchlist - Register", form=form)
 
 
+        return render_template(
+            "register.html",
+            title="Movies Watchlist - Register",
+            form=form)
+
+
+@pages
 
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
