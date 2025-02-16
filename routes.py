@@ -3,6 +3,19 @@ from forms import MovieForm
 from models import Movie
 import uuid
 
+from flask import (
+    Blueprint,
+    current_app,
+    redirect,
+    render_template,
+    session,
+    url_for,
+    request,
+    flash,
+)
+from .forms import MovieForm, ExtendedMovieForm, RegisterForm, LoginForm
+from .models import Movie, User
+from passlib.hash import pbkdf2_sha256
 
 
 pages = Blueprint(
