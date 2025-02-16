@@ -28,7 +28,13 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
-        pass
+        user = User(
+            _id=uuid.uuid4().hex,
+            email=form.email.data,
+            password=pbkdf2_sha256.hash(form.password.data),
+        )
+
+        current_app.db.user.insert_one(asdict(user))
 
     return render_template("register.html", title="Movies Watchlist - Register", form=form)
 
