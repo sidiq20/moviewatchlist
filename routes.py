@@ -92,6 +92,14 @@ def login():
 
     return render_template("login.html", title="Movie Watchlist - Login", form=form)
 
+@pages.route("/logout")
+def logout():
+    current_theme = session.get("theme")
+    session.clear()
+    session["theme"] = current_theme
+
+    return redirect(url_for('.login'))
+
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
     form = MovieForm()
