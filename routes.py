@@ -112,7 +112,10 @@ def add_movie():
             year=form.year.data
         )
 
-        current_app.db.movie.insert_one(movie)
+        current_app.db.movie.insert_one(asdict(movie))
+        current_app.db.user.update_one(
+            {"_id": session["user_id"]}, {"$push": {"movies": movie._id}}
+        )
 
         return redirect(url_for(".index"))
 
