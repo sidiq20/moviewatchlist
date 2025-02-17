@@ -28,6 +28,7 @@ class MovieForm(FlaskForm):
 
     submit = SubmitField("Add Movie")
 
+
 class StringListField(TextAreaField):
     def _value(self):
         if self.data:

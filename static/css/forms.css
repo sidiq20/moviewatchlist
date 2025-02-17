@@ -4,17 +4,22 @@
   border: var(--border);
   font-size: 1.2rem;
 
+
   background: var(--background-color);
+
+
+  box-shadow: 0.75rem 0.75rem 0 -0.2rem var(--accent-colour);
 }
 
 .form__container {
   padding: 2.5rem 1.5rem 1.5rem 1.5rem;
 }
 
+
 @media screen and (min-width: 24.75em) {
-    .form__container {
-      padding-left: 2rem;
-    }
+  .form__container {
+    padding-left: 2rem;
+  }
 }
 
 @media screen and (min-width: 30em) {
@@ -50,17 +55,6 @@
   border-bottom: var(--border);
 }
 
-.button--form {
-  margin: 2rem 0 0 auto;
-  padding: 0.75rem 3rem;
-  border: none;
-  border: var(--background-color);
-}
-
-.button--form:hover {
-  background: var(--background-color-hover);
-}
-
 .form__small {
   font-size: 0.83rem;
   color: var(--text-muted);
@@ -68,7 +62,7 @@
 
 .form__link {
   text-decoration: none;
-  color: var(--accent-color);
+  color: var(--accent-colour);
 }
 
 .form__link:hover {
@@ -87,7 +81,7 @@
 }
 
 .form__error,
-form__flash--danger {
+.form__flash--danger {
   background: var(--accent-colour);
 }
 
@@ -96,5 +90,16 @@ form__flash--danger {
 }
 
 .form__flash--success {
-  background: var(--accent-color-2);
+  background: var(--accent-colour-2);
+}
+
+.button--form {
+  margin: 2rem 0 0 auto;
+  padding: 0.75rem 3rem;
+  border: none;
+  background: var(--background-color);
+}
+
+.button--form:hover {
+  background: var(--background-color-hover);
 }
