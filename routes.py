@@ -67,6 +67,20 @@ def login():
 
     if form.validate_on_submit():
         user_data = current_app.db.user.find_one({"email": form.email.data})
+        if not user_data:
+            flash("Login credentials not correct", category="danger")
+            return redirect(url_for(".login"))
+        user = User(**user_data)
+
+        if user and pbkdf2_sha256.verify(form.password.data, user.password):
+            session["user_id"] = user._id
+            session["email"] = user.email
+
+            return redirect(url_for(".index"))
+
+        flash("Login credentials not correct", category="danger")
+
+    return render_template("login.html", title="Movie Watchlist - Login", form=form)
 
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
