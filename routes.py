@@ -63,6 +63,11 @@ def login():
     if session.get("email"):
         return redirect(url_for(".index"))
 
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user_data = current_app.db.user.find_one({"email": form.email.data})
+
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
     form = MovieForm()
