@@ -58,7 +58,10 @@ def register():
             form=form)
 
 
-@pages
+@pages.route("/login", methods=["GET", "POST"])
+def login():
+    if session.get("email"):
+        return redirect(url_for(".index"))
 
 @pages.route("/add", methods=["GET", "POST"])
 def add_movie():
